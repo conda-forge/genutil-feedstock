@@ -17,13 +17,13 @@ requirements:
   build:
     - python
     - setuptools
-    - numpy  {{ numpy }}
+    - numpy  1.11.*
     - udunits2
     - toolchain  # [osx]
   run:
     - python
     - cdms2
-    - numpy {{ numpy }}
+    - numpy >=1.11
     - udunits2
 
 test:

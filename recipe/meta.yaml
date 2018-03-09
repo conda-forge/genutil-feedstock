@@ -22,7 +22,6 @@ requirements:
     - toolchain  # [osx]
   run:
     - python
-    - cdms2
     - numpy >=1.11
     - udunits2
 

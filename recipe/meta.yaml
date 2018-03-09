@@ -7,8 +7,7 @@ package:
 
 source:
     url: https://github.com/UV-CDAT/genutil/archive/master.tar.gz
-    sha256: bec6bf52ab161cc8775368e7ffb14f9d6adbae3b8073a44e2592de92b303c159
-    
+    sha245: b3b4ad208ae996222e79eaf02d6e6225eb35f6ec6b7183389114f6912cfab19f
 
 build:
   number: 1

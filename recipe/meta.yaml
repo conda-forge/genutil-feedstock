@@ -7,11 +7,11 @@ package:
 
 source:
     url: https://github.com/UV-CDAT/genutil/archive/master.tar.gz
-    sha245: b3b4ad208ae996222e79eaf02d6e6225eb35f6ec6b7183389114f6912cfab19f
+    sha256: b3b4ad208ae996222e79eaf02d6e6225eb35f6ec6b7183389114f6912cfab19f
 
 build:
-  number: 1
-  skip: True  # [win or py3k]
+  number: 0
+  skip: True  # [win]
 
 requirements:
   build:

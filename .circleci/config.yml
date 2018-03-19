@@ -24,6 +24,7 @@ jobs:
       - run:
           # Run, test and (if we have a BINSTAR_TOKEN) upload the distributions.
           command: ./ci_support/run_docker_build.sh
+
   build__CONDA_NPY_112__CONDA_PY_27:
     working_directory: ~/test
     machine: true
@@ -53,6 +54,7 @@ jobs:
     environment:
       - CONDA_NPY: "113"
       - CONDA_PY: "27"
+
     steps:
       - checkout
       - run:
@@ -70,12 +72,14 @@ jobs:
       - run:
           # Run, test and (if we have a BINSTAR_TOKEN) upload the distributions.
           command: ./ci_support/run_docker_build.sh
+
   build__CONDA_NPY_114__CONDA_PY_27:
     working_directory: ~/test
     machine: true
     environment:
       - CONDA_NPY: "114"
       - CONDA_PY: "27"
+
     steps:
       - checkout
       - run:
@@ -88,6 +92,7 @@ jobs:
       - run:
           name: Print conda-build environment variables
           command: |
+
             echo "CONDA_NPY=${CONDA_NPY}"
             echo "CONDA_PY=${CONDA_PY}"
       - run:

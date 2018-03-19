@@ -8,28 +8,28 @@ package:
 source:
     url: https://github.com/UV-CDAT/genutil/archive/v{{ version }}.tar.gz
     sha256: 1df22b07375f26fd6f687d5c0df1cbfeda8cc85b775720def7e69c06f7372b56
-    
+
 
 build:
   number: 0
-  skip: True  # [win or py3k]
+  skip: True  # [win]
 
 requirements:
   build:
     - python
     - setuptools
-    - numpy x.x
+    - numpy  1.11.*
     - udunits2
     - toolchain  # [osx]
   run:
     - python
     - cdms2
-    - numpy x.x
+    - numpy >=1.11
     - udunits2
 
 test:
-    command:
-        - export UVCDAT_ANONYMOUS_LOG=false && python run_tests.py -v2
+    commands:
+        - export UVCDAT_ANONYMOUS_LOG=false && python -c "import genutil"
 
 about:
     home:  http://gitub.com/UV-CDAT/genutil

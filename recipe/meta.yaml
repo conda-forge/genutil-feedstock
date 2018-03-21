@@ -1,13 +1,13 @@
 {% set name = "genutil" %}
-{% set version = "3.0" %}
+{% set version = "8.0" %}
 
 package:
     name: {{ name|lower }}
     version: {{ version }}
 
 source:
-    url: https://github.com/UV-CDAT/genutil/archive/v{{ version }}.tar.gz
-    sha256: 1df22b07375f26fd6f687d5c0df1cbfeda8cc85b775720def7e69c06f7372b56
+    url: https://github.com/CDAT/genutil/archive/v{{ version }}.tar.gz
+    sha256: 81dcab37026b6b718a5c339439dcd3d286c84820b8c286749b9c6951f482a389
 
 
 build:
@@ -21,6 +21,7 @@ requirements:
     - numpy  1.11.*
     - udunits2
     - toolchain  # [osx]
+    - cdat_info
   run:
     - python
     - cdms2
@@ -32,7 +33,7 @@ test:
         - export UVCDAT_ANONYMOUS_LOG=false && python -c "import genutil"
 
 about:
-    home:  http://gitub.com/UV-CDAT/genutil
+    home:  http://gitub.com/CDAT/genutil
     license: 'CCLRC'
     summary: 'General Utitilites for the Community Data Analysys Tools'
 

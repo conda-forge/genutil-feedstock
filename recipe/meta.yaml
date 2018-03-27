@@ -7,11 +7,11 @@ package:
 
 source:
     url: https://github.com/UV-CDAT/genutil/archive/v{{ version }}.tar.gz
-    sha256: 81dcab37026b6b718a5c339439dcd3d286c84820b8c286749b9c6951f482a389
+    sha256: 1e0b1a74422030e321fad62307a5246fe728654d40462786b0a030ef5c1f37f6
 
 
 build:
-  number: 0
+  number: 1
   skip: True  # [win]
 
 requirements:

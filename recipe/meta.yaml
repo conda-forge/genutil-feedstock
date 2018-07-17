@@ -3,7 +3,7 @@
 
 package:
     name: {{ name|lower }}
-    version: "{{ version }}"
+    version: "{{ version }}.np{{ numpy }}"
 
 source:
     url: https://github.com/cdat/genutil/archive/v8.1.tar.gz
@@ -17,7 +17,7 @@ requirements:
     build:
         - {{ compiler("c") }}
     host:
-        - python
+        - python {{ python }}
         - setuptools
         - numpy
         - udunits2

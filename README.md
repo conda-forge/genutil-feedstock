@@ -14,14 +14,16 @@ Summary: General Utitilites for the Community Data Analysys Tools
 Current build status
 ====================
 
-Linux: [![Circle CI](https://circleci.com/gh/conda-forge/genutil-feedstock.svg?style=shield)](https://circleci.com/gh/conda-forge/genutil-feedstock)
-OSX: [![TravisCI](https://travis-ci.org/conda-forge/genutil-feedstock.svg?branch=master)](https://travis-ci.org/conda-forge/genutil-feedstock)
-Windows: ![](https://cdn.rawgit.com/conda-forge/conda-smithy/90845bba35bec53edac7a16638aa4d77217a3713/conda_smithy/static/disabled.svg)
+[![Linux](https://img.shields.io/circleci/project/github/conda-forge/genutil-feedstock/master.svg?label=Linux)](https://circleci.com/gh/conda-forge/genutil-feedstock)
+[![OSX](https://img.shields.io/travis/conda-forge/genutil-feedstock/master.svg?label=macOS)](https://travis-ci.org/conda-forge/genutil-feedstock)
+![Windows disabled](https://img.shields.io/badge/Windows-disabled-lightgrey.svg)
 
 Current release info
 ====================
-Version: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/genutil/badges/version.svg)](https://anaconda.org/conda-forge/genutil)
-Downloads: [![Anaconda-Server Badge](https://anaconda.org/conda-forge/genutil/badges/downloads.svg)](https://anaconda.org/conda-forge/genutil)
+
+| Name | Downloads | Version | Platforms |
+| --- | --- | --- | --- |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-genutil-green.svg)](https://anaconda.org/conda-forge/genutil) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/genutil.svg)](https://anaconda.org/conda-forge/genutil) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/genutil.svg)](https://anaconda.org/conda-forge/genutil) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/genutil.svg)](https://anaconda.org/conda-forge/genutil) |
 
 Installing genutil
 ==================

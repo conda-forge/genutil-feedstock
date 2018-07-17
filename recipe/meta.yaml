@@ -3,7 +3,7 @@
 
 package:
     name: {{ name|lower }}
-    version: "{{ version }}.np{{ numpy }}"
+    version: {{ version }}.np{{ numpy }}
 
 source:
     url: https://github.com/cdat/{{ name }}/archive/v{{ version }}.tar.gz
@@ -17,13 +17,13 @@ requirements:
     build:
         - {{ compiler("c") }}
     host:
-        - python {{ python }}
+        - python
         - setuptools
         - numpy >1.11.
         - udunits2
         - cdms2
     run:
-        - python {{ python }}
+        - python
         - cdms2
         - udunits2
         - {{ pin_compatible('numpy') }}

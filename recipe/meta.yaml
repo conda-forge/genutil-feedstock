@@ -1,42 +1,32 @@
-{% set name = "genutil" %}
-{% set version = "8.0" %}
-
+{{ set name = "genutil" }}
+{{ set version = "8.1" }}
 package:
-    name: {{ name|lower }}
-    version: {{ version }}
+    name: genutil
+    version: {{ version }}.np{{ numpy }}
 
 source:
-    url: https://github.com/UV-CDAT/genutil/archive/v{{ version }}.tar.gz
+    url: https://github.com/cdat/{{ name }}/archive/v8.0.tar.gz
     sha256: 1e0b1a74422030e321fad62307a5246fe728654d40462786b0a030ef5c1f37f6
 
-
 build:
-  number: 1
-  skip: True  # [win]
-
+  number: 0
+ 
 requirements:
   build:
-    - python
+    - {{ compiler("c") }}
+  host:
+    - python {{ python }}
     - setuptools
-    - numpy  1.11.*
+    - numpy >1.11.*
     - udunits2
-    - toolchain  # [osx]
   run:
-    - python
+    - python {{ python }}
     - cdms2
-    - numpy >=1.11
     - udunits2
-
-test:
-    commands:
-        - export UVCDAT_ANONYMOUS_LOG=false && python -c "import genutil"
+    - {{ pin_compatible('numpy') }}
 
 about:
-    home:  http://gitub.com/UV-CDAT/genutil
-    license: 'CCLRC'
-    summary: 'General Utitilites for the Community Data Analysys Tools'
+    home:  http://gitub.com/CDAT/genutil
 
-extra:
-  recipe-maintainers:
-    - dnadeau4
-    - doutriaux1
+
+

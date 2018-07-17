@@ -1,42 +1,44 @@
+{% set version = "8.1" %}
 {% set name = "genutil" %}
-{% set version = "8.0" %}
 
 package:
     name: {{ name|lower }}
-    version: {{ version }}
+    version: "{{ version }}.np{{ numpy }}"
 
 source:
-    url: https://github.com/UV-CDAT/genutil/archive/v{{ version }}.tar.gz
-    sha256: 1e0b1a74422030e321fad62307a5246fe728654d40462786b0a030ef5c1f37f6
-
+    url: https://github.com/cdat/genutil/archive/v8.1.tar.gz
+    sha256: 7c12f2fc830672b14b15c9f91d0e955bb8474c0c8819a00b605b5ec94edd1649
 
 build:
-  number: 1
-  skip: True  # [win]
-
+    number: 0
+    skip: true  # [win]
+ 
 requirements:
-  build:
-    - python
-    - setuptools
-    - numpy  1.11.*
-    - udunits2
-    - toolchain  # [osx]
-  run:
-    - python
-    - cdms2
-    - numpy >=1.11
-    - udunits2
+    build:
+        - {{ compiler("c") }}
+    host:
+        - python {{ python }}
+        - setuptools
+        - numpy
+        - udunits2
+        - cdms2
+    run:
+        - python
+        - cdms2
+        - udunits2
+        - {{ pin_compatible('numpy') }}
 
 test:
     commands:
-        - export UVCDAT_ANONYMOUS_LOG=false && python -c "import genutil"
+        -  export UVCDAT_ANONYMOUS_LOG=false && python -c "import genutil"
 
 about:
-    home:  http://gitub.com/UV-CDAT/genutil
+    home:  http://gitub.com/CDAT/genutil
     license: 'CCLRC'
+    license_file: LEGAL.txt
     summary: 'General Utitilites for the Community Data Analysys Tools'
 
 extra:
-  recipe-maintainers:
-    - dnadeau4
-    - doutriaux1
+    recipe-maintainers:
+        - doutriaux1
+        - dnadeau4

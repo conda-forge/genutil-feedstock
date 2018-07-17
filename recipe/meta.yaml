@@ -3,10 +3,10 @@
 
 package:
     name: {{ name|lower }}
-    version: {{ version }}.np{{ numpy }}
+    version: "{{ version }}"
 
 source:
-    url: https://github.com/cdat/{{ name }}/archive/v{{ version }}.tar.gz
+    url: https://github.com/cdat/genutil/archive/v8.1.tar.gz
     sha256: 7c12f2fc830672b14b15c9f91d0e955bb8474c0c8819a00b605b5ec94edd1649
 
 build:
@@ -19,7 +19,7 @@ requirements:
     host:
         - python
         - setuptools
-        - numpy >1.11.
+        - numpy
         - udunits2
         - cdms2
     run:

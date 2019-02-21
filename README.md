@@ -116,4 +116,5 @@ Feedstock Maintainers
 
 * [@dnadeau4](https://github.com/dnadeau4/)
 * [@doutriaux1](https://github.com/doutriaux1/)
+* [@xylar](https://github.com/xylar/)
 

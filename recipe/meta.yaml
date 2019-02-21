@@ -23,7 +23,7 @@ requirements:
         - udunits2
         - cdms2
     run:
-        - python
+        - python {{ python }}
         - cdms2
         - udunits2
         - {{ pin_compatible('numpy') }}

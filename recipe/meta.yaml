@@ -3,7 +3,7 @@
 
 package:
     name: {{ name|lower }}
-    version: "{{ version }}.np{{ numpy }}"
+    version: {{ version }}
 
 source:
     url: https://github.com/cdat/genutil/archive/v8.1.tar.gz

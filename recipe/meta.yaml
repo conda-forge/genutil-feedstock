@@ -1,4 +1,4 @@
-{% set version = "8.1" %}
+{% set version = "8.1.1" %}
 {% set name = "genutil" %}
 
 package:
@@ -10,7 +10,7 @@ source:
     sha256: 7c12f2fc830672b14b15c9f91d0e955bb8474c0c8819a00b605b5ec94edd1649
 
 build:
-    number: 1
+    number: 0
     skip: true  # [win]
  
 requirements:

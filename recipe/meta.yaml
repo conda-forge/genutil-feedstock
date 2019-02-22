@@ -22,10 +22,12 @@ requirements:
         - numpy
         - udunits2
         - cdms2 >=3.1.2
+        - libcdms >=3.1.2
         - cdat_info >=8.1.1
     run:
         - python {{ python }}
         - cdms2 >=3.1.2
+        - libcdms >=3.1.2
         - udunits2
         - cdat_info >=8.1.1
         - {{ pin_compatible('numpy') }}

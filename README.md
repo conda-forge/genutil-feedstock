@@ -5,9 +5,9 @@
 About genutil
 =============
 
-Home: http://gitub.com/CDAT/genutil
+Home: http://github.com/CDAT/genutil
 
-Package license: CCLRC
+Package license: BSD
 
 Feedstock license: BSD 3-Clause
 

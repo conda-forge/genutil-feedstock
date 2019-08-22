@@ -1,6 +1,12 @@
-export CFLAGS="-Wall -g -m64 -pipe -O2  -fPIC ${CFLAGS}"
-export CXXLAGS="${CFLAGS} ${CXXLAGS}"
-export CPPFLAGS="-I${PREFIX}/include ${CPPFLAGS}"
-export LDFLAGS="-L${PREFIX}/lib ${LDFLAGS}"
+export CFLAGS="-Wall -g -m64 -pipe -O2  -fPIC"
+export CXXLAGS="${CFLAGS}"
+export CPPFLAGS="-I${PREFIX}/include"
+export LDFLAGS="-L${PREFIX}/lib"
 
-python setup.py install
+if [[ `uname` == "Linux" ]]; then
+    export LDSHARED_FLAGS="-shared -pthread"
+else
+    export LDSHARED_FLAGS="-bundle -undefined dynamic_lookup"
+fi
+export LDSHARED="$CC $LDSHARED_FLAGS"
+LDSHARED=$LDSHARED python setup.py install

@@ -1,4 +1,4 @@
-{% set version = "8.1.1" %}
+{% set version = "8.2" %}
 {% set name = "genutil" %}
 
 package:
@@ -7,7 +7,7 @@ package:
 
 source:
     url: https://github.com/cdat/genutil/archive/v{{ version }}.tar.gz
-    sha256: b544e33380d7814bb10cfb797a71b9a37e9a6a737a763dddc40e9e327c5202b4
+    sha256: 171dd39dbcd814995f59eec5a23646cae12c08e5ef2e0e9c986198e220d2d038
 
 build:
     number: 0
@@ -21,15 +21,10 @@ requirements:
         - setuptools
         - numpy
         - udunits2
-        - cdms2 >=3.1.2
-        - libcdms >=3.1.2
-        - cdat_info >=8.1.1
     run:
         - python {{ python }}
-        - cdms2 >=3.1.2
-        - libcdms >=3.1.2
+        - cdms2 >=3.1.3
         - udunits2
-        - cdat_info >=8.1.1
         - {{ pin_compatible('numpy') }}
 
 test:
@@ -47,3 +42,5 @@ extra:
         - doutriaux1
         - dnadeau4
         - xylar
+        - downiec
+        - muryanto1

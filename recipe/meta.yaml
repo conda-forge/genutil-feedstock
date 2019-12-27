@@ -10,19 +10,20 @@ source:
     sha256: 171dd39dbcd814995f59eec5a23646cae12c08e5ef2e0e9c986198e220d2d038
 
 build:
-    number: 1
+    number: 2
     skip: true  # [win]
- 
+
 requirements:
     build:
         - {{ compiler("c") }}
     host:
-        - python {{ python }}
+        - python
+        - cython
         - setuptools
         - numpy
         - udunits2
     run:
-        - python {{ python }}
+        - python
         - cdms2 >=3.1.3
         - udunits2
         - {{ pin_compatible('numpy') }}

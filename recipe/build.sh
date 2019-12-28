@@ -9,4 +9,4 @@ else
     export LDSHARED_FLAGS="-bundle -undefined dynamic_lookup"
 fi
 export LDSHARED="$CC $LDSHARED_FLAGS"
-LDSHARED=$LDSHARED $PYTHON setup.py install --record record.txt
+LDSHARED=$LDSHARED $PYTHON -m pip install . --no-deps -vv

@@ -10,7 +10,7 @@ source:
     sha256: 171dd39dbcd814995f59eec5a23646cae12c08e5ef2e0e9c986198e220d2d038
 
 build:
-    number: 2
+    number: 3
     skip: true  # [win]
 
 requirements:
@@ -18,6 +18,7 @@ requirements:
         - {{ compiler("c") }}
     host:
         - python
+        - pip
         - cython
         - setuptools
         - numpy

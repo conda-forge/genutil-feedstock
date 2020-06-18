@@ -1,4 +1,4 @@
-{% set version = "8.2" %}
+{% set version = "8.2.1.rc1" %}
 {% set name = "genutil" %}
 
 package:
@@ -7,10 +7,10 @@ package:
 
 source:
     url: https://github.com/cdat/genutil/archive/v{{ version }}.tar.gz
-    sha256: 171dd39dbcd814995f59eec5a23646cae12c08e5ef2e0e9c986198e220d2d038
+    sha256: bc3669117176342fbf69bc9fc7fa622f80d838efa319f40d9a3b69e7f7edecab
 
 build:
-    number: 3
+    number: 0
     skip: true  # [win]
 
 requirements:
@@ -20,18 +20,18 @@ requirements:
         - python
         - pip
         - cython
-        - setuptools
         - numpy
         - udunits2
+        - cdms2
     run:
         - python
-        - cdms2 >=3.1.3
+        - cdms2
         - udunits2
         - {{ pin_compatible('numpy') }}
 
 test:
     commands:
-        -  export CDAT_ANONYMOUS_LOG=false && python -c "import genutil"
+        - python -c "import genutil"
 
 about:
     home:  http://github.com/CDAT/genutil
@@ -46,3 +46,5 @@ extra:
         - xylar
         - downiec
         - muryanto1
+        - jasonb5
+        - forsyth2

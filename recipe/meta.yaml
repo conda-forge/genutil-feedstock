@@ -18,6 +18,7 @@ requirements:
         - {{ compiler("c") }}
     host:
         - python
+        - pip
         - cython
         - numpy
         - udunits2

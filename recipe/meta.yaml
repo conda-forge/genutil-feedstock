@@ -1,4 +1,4 @@
-{% set version = "8.2.1.rc1" %}
+{% set version = "8.2.1.rc2" %}
 {% set name = "genutil" %}
 
 package:
@@ -7,7 +7,7 @@ package:
 
 source:
     url: https://github.com/cdat/genutil/archive/v{{ version }}.tar.gz
-    sha256: bc3669117176342fbf69bc9fc7fa622f80d838efa319f40d9a3b69e7f7edecab
+    sha256: 4635bc8d5b7b60be9baf24bd413b117567c4e7180cb2efaa132a4fe13f40990a
 
 build:
     number: 0

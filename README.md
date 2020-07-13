@@ -5,7 +5,7 @@ Home: http://github.com/CDAT/genutil
 
 Package license: BSD
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: General Utitilites for the Community Data Analysys Tools
 

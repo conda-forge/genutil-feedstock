@@ -36,7 +36,7 @@ test:
 
 about:
     home:  http://github.com/CDAT/genutil
-    license: BSD
+    license: BSD-3-Clause
     license_file: bsd-3-clause.txt
     summary: 'General Utitilites for the Community Data Analysys Tools'
 

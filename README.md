@@ -3,7 +3,7 @@ About genutil
 
 Home: http://github.com/CDAT/genutil
 
-Package license: BSD
+Package license: BSD-3-Clause
 
 Feedstock license: BSD-3-Clause
 

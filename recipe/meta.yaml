@@ -1,4 +1,4 @@
-{% set version = "8.2" %}
+{% set version = "8.2.1" %}
 {% set name = "genutil" %}
 
 package:
@@ -7,11 +7,12 @@ package:
 
 source:
     url: https://github.com/cdat/genutil/archive/v{{ version }}.tar.gz
-    sha256: 171dd39dbcd814995f59eec5a23646cae12c08e5ef2e0e9c986198e220d2d038
+    sha256: 944ccc4de05072d2773cfff6b5f279e2058457a672169153ebec0e19f5a3601c
 
 build:
-    number: 3
+    number: 0
     skip: true  # [win]
+    script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
     build:
@@ -20,22 +21,22 @@ requirements:
         - python
         - pip
         - cython
-        - setuptools
         - numpy
         - udunits2
+        - cdms2
     run:
         - python
-        - cdms2 >=3.1.3
+        - cdms2
         - udunits2
         - {{ pin_compatible('numpy') }}
 
 test:
     commands:
-        -  export CDAT_ANONYMOUS_LOG=false && python -c "import genutil"
+        - python -c "import genutil"
 
 about:
     home:  http://github.com/CDAT/genutil
-    license: BSD
+    license: BSD-3-Clause
     license_file: bsd-3-clause.txt
     summary: 'General Utitilites for the Community Data Analysys Tools'
 
@@ -46,3 +47,5 @@ extra:
         - xylar
         - downiec
         - muryanto1
+        - jasonb5
+        - forsyth2

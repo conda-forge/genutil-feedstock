@@ -31,8 +31,8 @@ requirements:
         - {{ pin_compatible('numpy') }}
 
 test:
-    commands:
-        - python -c "import genutil"
+    imports:
+        - genutil
 
 about:
     home:  http://github.com/CDAT/genutil
@@ -46,6 +46,5 @@ extra:
         - dnadeau4
         - xylar
         - downiec
-        - muryanto1
         - jasonb5
         - forsyth2

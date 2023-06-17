@@ -8,9 +8,11 @@ package:
 source:
     url: https://github.com/cdat/genutil/archive/v{{ version }}.tar.gz
     sha256: 944ccc4de05072d2773cfff6b5f279e2058457a672169153ebec0e19f5a3601c
+    patches:
+      - 0001-numpy-float-int.patch
 
 build:
-    number: 2
+    number: 3
     skip: true  # [win]
     script: {{ PYTHON }} -m pip install . --no-deps -vv
 

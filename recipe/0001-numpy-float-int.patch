@@ -1,0 +1,197 @@
+diff -ruN genutil-8.2.1/Lib/arrayindexing.py genutil-8.2.1-numpy-patch/Lib/arrayindexing.py
+--- genutil-8.2.1/Lib/arrayindexing.py	2020-07-17 23:17:22.000000000 +0200
++++ genutil-8.2.1-numpy-patch/Lib/arrayindexing.py	2023-06-17 14:58:19.197970213 +0200
+@@ -38,7 +38,7 @@
+     isma = numpy.ma.isMA(Array)
+     if isinstance(Indices, int):
+         return Array[Indices]
+-    if Indices.dtype not in [numpy.int, numpy.int32, numpy.int16]:
++    if Indices.dtype not in [int, int32, int16]:
+         raise "Error indices array must be made of integers (try: Indices=Indices.astype('l') first)"
+ 
+     if cdms2.isVariable(Array):
+@@ -111,7 +111,7 @@
+ # Array[Indices]=Values
+     # First some checks
+     # isma=numpy.ma.isMA(Array)
+-    if Indices.dtype not in [numpy.int, numpy.int32, numpy.int16]:
++    if Indices.dtype not in [int, int32, int16]:
+         raise "Error indices array must be made of integers (try: Indices=Indices.astype('l') first)"
+ 
+     if cdms2.isVariable(Array):
+diff -ruN genutil-8.2.1/Lib/averager.py genutil-8.2.1-numpy-patch/Lib/averager.py
+--- genutil-8.2.1/Lib/averager.py	2020-07-17 23:17:22.000000000 +0200
++++ genutil-8.2.1-numpy-patch/Lib/averager.py	2023-06-17 14:58:05.062196325 +0200
+@@ -55,7 +55,7 @@
+             numpy.array(
+                 list(
+                     range(1)),
+-                numpy.float),
++                float),
+             latBounds=Lataxis.getBounds())
+         xlatwt, xlonwt = xgr.getWeights()
+         return xlatwt
+@@ -65,7 +65,7 @@
+             numpy.array(
+                 list(
+                     range(1)),
+-                numpy.float),
++                float),
+             Lonaxis[:],
+             lonBounds=Lonaxis.getBounds())
+         xlatwt, xlonwt = xgr.getWeights()
+@@ -130,7 +130,7 @@
+             numpy.array(
+                 list(
+                     range(1)),
+-                numpy.float),
++                float),
+             latBounds=Lataxis.getBounds())
+         xlatwt, xlonwt = xgr.getWeights()
+         return xlatwt
+@@ -140,7 +140,7 @@
+             numpy.array(
+                 list(
+                     range(1)),
+-                numpy.float),
++                float),
+             Lonaxis[:],
+             lonBounds=Lonaxis.getBounds())
+         xlatwt, xlonwt = xgr.getWeights()
+@@ -541,7 +541,7 @@
+                     'Cannot generate weights for an numpy.ma. %s is not a valid option when you do not pass an MV2. ' %
+                     wt)
+             elif (wt in ['equal', 'unweighted']):
+-                weightoptions[i] = numpy.ones(tuple([shx[i]]), numpy.float)
++                weightoptions[i] = numpy.ones(tuple([shx[i]]), float)
+             # end of if wt in ['weighted', 'generate']:
+         elif isinstance(wt, numpy.ndarray):
+             if __DEBUG__:
+@@ -615,7 +615,7 @@
+             if __DEBUG__:
+                 print('Initialized shape = ', init_shape)
+             #
+-            wt_init = numpy.ones(init_shape, numpy.float)
++            wt_init = numpy.ones(init_shape, float)
+             #
+             dim = len(init_shape) + 1
+         else:
+@@ -625,7 +625,7 @@
+         #
+         wgt = weightoptions[-1]
+         if wgt in ['equal', 'unweighted']:
+-            wgt = numpy.ones(xsh[-dim], numpy.float)
++            wgt = numpy.ones(xsh[-dim], float)
+         else:
+             if __DEBUG__:
+                 print(wgt)
+@@ -663,7 +663,7 @@
+         for i in range(len(weightoptions) - 2, -1, -1):
+             dim_wt = weightoptions[i]
+             if dim_wt in ['equal', 'unweighted']:
+-                dim_wt = numpy.ones(xsh[i], numpy.float)
++                dim_wt = numpy.ones(xsh[i], float)
+             # end of if dim_wt in ['equal', 'weighted']:
+             if __DEBUG__:
+                 print('At step ', i, dim_wt)
+diff -ruN genutil-8.2.1/Lib/minmax.py genutil-8.2.1-numpy-patch/Lib/minmax.py
+--- genutil-8.2.1/Lib/minmax.py	2020-07-17 23:17:22.000000000 +0200
++++ genutil-8.2.1-numpy-patch/Lib/minmax.py	2023-06-17 14:58:05.082196003 +0200
+@@ -20,8 +20,8 @@
+             >>> genutil.minmax([[s,s*2],4.,[6.,7.,s]],[5.,-7.,8,(6.,1.)])
+             (-7.0, 8.0)
+     """
+-    mx = numpy.finfo(numpy.float).min
+-    mn = numpy.finfo(numpy.float).max
++    mx = numpy.finfo(float).min
++    mn = numpy.finfo(float).max
+     if len(data) == 1:
+         data = data[0]
+     global myfunction
+diff -ruN genutil-8.2.1/Lib/statistics.py genutil-8.2.1-numpy-patch/Lib/statistics.py
+--- genutil-8.2.1/Lib/statistics.py	2020-07-17 23:17:22.000000000 +0200
++++ genutil-8.2.1-numpy-patch/Lib/statistics.py	2023-06-17 14:58:19.193970277 +0200
+@@ -1683,7 +1683,7 @@
+     for p in percent:
+         i = numpy.floor((p / 100.) * (ns - 1))
+         try:
+-            i = i.astype(numpy.int)
++            i = i.astype(int)
+         except BaseException:
+             i = int(i)
+         ii = i + 1
+@@ -1701,7 +1701,7 @@
+         Aii = numpy.where(numpy.equal(ns, 1), 100., tmp)
+         ii = numpy.where(numpy.equal(ii, ns), ns - 1, ii)
+         if numpy.ndim(ii) > 0:
+-            ii = ii.astype(numpy.int)
++            ii = ii.astype(int)
+ 
+         tmp = (p - Ai) / (Aii - Ai) * arrayindexing.get(out, ii) + \
+             (Aii - p) / (Aii - Ai) * arrayindexing.get(out, i)
+@@ -1716,7 +1716,7 @@
+             output = output.astype(out.dtype.char)
+         else:
+             output = numpy.ma.concatenate(
+-                (output, tmp.astype(numpy.float32)), 0)
++                (output, tmp.astype(float32)), 0)
+     return output
+ 
+ 
+diff -ruN genutil-8.2.1/tests/test_genutil_arrayindexing.py genutil-8.2.1-numpy-patch/tests/test_genutil_arrayindexing.py
+--- genutil-8.2.1/tests/test_genutil_arrayindexing.py	2020-07-17 23:17:22.000000000 +0200
++++ genutil-8.2.1-numpy-patch/tests/test_genutil_arrayindexing.py	2023-06-17 14:58:19.177970532 +0200
+@@ -27,8 +27,8 @@
+ 
+     def test_arrayindexing_2D(self):
+         ## 2D
+-        A=numpy.array([[1,2],[3,4,],[5,6],[7,8]],numpy.float)
+-        B=numpy.array([3,2],numpy.int32)
++        A=numpy.array([[1,2],[3,4,],[5,6],[7,8]],float)
++        B=numpy.array([3,2],int32)
+ 
+         # Extract from A at indices specified by B
+         # From C directly
+@@ -42,7 +42,7 @@
+ 
+         #### Set tests
+         V=numpy.array([1345,34],A.dtype.char)
+-        B=numpy.array([-3,2],numpy.int)
++        B=numpy.array([-3,2],int)
+         # Checks setting negative indices
+         A=genutil.arrayindexing.set(A,B,V)
+         self.assertArraysEqual(A,[[  1.,   2.],
+@@ -50,9 +50,9 @@
+               [  5.,   34],
+                [  7.,   8.]])
+ 
+-        A=numpy.array([[1,2],[3,4,],[5,6],[7,8]],numpy.float)
+-        B=numpy.array([[1,2],[3,0,],[1,2],[0,3]],numpy.int)
+-        V=numpy.array([[10.,21.],[13,.4,],[1.5,6.4],[77.7,9.8]],numpy.float)
++        A=numpy.array([[1,2],[3,4,],[5,6],[7,8]],float)
++        B=numpy.array([[1,2],[3,0,],[1,2],[0,3]],int)
++        V=numpy.array([[10.,21.],[13,.4,],[1.5,6.4],[77.7,9.8]],float)
+         C=genutil.arrayindexing.set(A,B,V)
+         self.assertArraysEqual(C,[[ 77.7,   0.4],
+              [  1.5,   4. ],
+diff -ruN genutil-8.2.1/tests/test_genutil_averager.py genutil-8.2.1-numpy-patch/tests/test_genutil_averager.py
+--- genutil-8.2.1/tests/test_genutil_averager.py	2020-07-17 23:17:22.000000000 +0200
++++ genutil-8.2.1-numpy-patch/tests/test_genutil_averager.py	2023-06-17 14:58:05.094195811 +0200
+@@ -13,7 +13,7 @@
+         #
+ 
+ 
+-        ans2 = averager(x, axis='yx', weights = [numpy.ones(len(x.getLatitude()), numpy.float), 'generate'], combinewts=1)
++        ans2 = averager(x, axis='yx', weights = [numpy.ones(len(x.getLatitude()), float), 'generate'], combinewts=1)
+ 
+ 
+         b = numpy.array([1.,2.3, 3.0, 4.3])
+@@ -100,7 +100,7 @@
+             averager(x, axis='tx', weight='equal') 
+ 
+         with self.assertRaises(AveragerError):
+-            a = numpy.array(list(range(10)), numpy.float)
++            a = numpy.array(list(range(10)), float)
+             averager(x, axis='tx', weight=['equal', a]) 
+ 
+         with self.assertRaises(AveragerError):

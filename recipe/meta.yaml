@@ -12,8 +12,8 @@ source:
       - 0001-numpy-float-int.patch
 
 build:
-    number: 3
-    skip: true  # [win]
+    number: 4
+    skip: true  # [win or py>=311]
     script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:
@@ -22,14 +22,14 @@ requirements:
     host:
         - python
         - pip
+        - cdms2
         - cython
+        - expat
         - numpy
         - udunits2
-        - cdms2
     run:
         - python
         - cdms2
-        - udunits2
         - {{ pin_compatible('numpy') }}
 
 test:

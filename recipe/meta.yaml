@@ -22,10 +22,11 @@ requirements:
     host:
         - python
         - pip
+        - cdms2
         - cython
+        - expat
         - numpy
         - udunits2
-        - cdms2
     run:
         - python
         - cdms2

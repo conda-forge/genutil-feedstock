@@ -12,7 +12,7 @@ source:
       - 0001-numpy-float-int.patch
 
 build:
-    number: 3
+    number: 4
     skip: true  # [win]
     script: {{ PYTHON }} -m pip install . --no-deps -vv
 
@@ -29,7 +29,6 @@ requirements:
     run:
         - python
         - cdms2
-        - udunits2
         - {{ pin_compatible('numpy') }}
 
 test:

@@ -13,7 +13,7 @@ source:
 
 build:
     number: 4
-    skip: true  # [win]
+    skip: true  # [win or py>=311]
     script: {{ PYTHON }} -m pip install . --no-deps -vv
 
 requirements:

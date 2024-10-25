@@ -10,6 +10,7 @@ source:
     sha256: 944ccc4de05072d2773cfff6b5f279e2058457a672169153ebec0e19f5a3601c
     patches:
       - 0001-numpy-float-int.patch
+      - 0002-numpy-2.0.patch
 
 build:
     number: 5

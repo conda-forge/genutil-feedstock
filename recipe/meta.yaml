@@ -10,15 +10,17 @@ source:
     sha256: 944ccc4de05072d2773cfff6b5f279e2058457a672169153ebec0e19f5a3601c
     patches:
       - 0001-numpy-float-int.patch
+      - 0002-numpy-2.0.patch
 
 build:
-    number: 4
+    number: 5
     skip: true  # [win or py>=311]
-    script: {{ PYTHON }} -m pip install . --no-deps -vv
+    script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
 
 requirements:
     build:
         - {{ compiler("c") }}
+        - {{ stdlib("c") }}
     host:
         - python
         - pip
@@ -26,11 +28,12 @@ requirements:
         - cython
         - expat
         - numpy
+        - setuptools <60
         - udunits2
     run:
         - python
         - cdms2
-        - {{ pin_compatible('numpy') }}
+        - numpy
 
 test:
     imports:
